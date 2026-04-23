@@ -41,4 +41,8 @@
 // This #define is used only for default rendering_buffer type,
 // in short hand typedefs like pixfmt_rgba32.
 
+// disallowed in newer C++ dialects
+
+#define register
+
 #endif

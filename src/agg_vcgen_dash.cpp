@@ -148,6 +148,7 @@ namespace agg
             {
             case initial:
                 rewind(0);
+                /* fall through */
 
             case ready:
                 if(m_num_dashes < 2 || m_src_vertices.size() < 2)
@@ -169,8 +170,9 @@ namespace agg
                 {
                     double dash_rest = m_dashes[m_curr_dash] - m_curr_dash_start;
 
-                    unsigned cmd = (m_curr_dash & 1) ? 
-                                   path_cmd_move_to : 
+                    /*unsigned */ /* C4456 */
+                             cmd = (m_curr_dash & 1) ?
+                                   path_cmd_move_to :
                                    path_cmd_line_to;
 
                     if(m_curr_rest > dash_rest)

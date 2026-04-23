@@ -21,7 +21,7 @@ namespace agg
 {
 
     //------------------------------------------------------------------------
-    const double curve_distance_epsilon                  = 1e-30;
+    /*const double curve_distance_epsilon                  = 1e-30; NIU*/
     const double curve_collinearity_epsilon              = 1e-30;
     const double curve_angle_tolerance_epsilon           = 0.01;
     enum curve_recursion_limit_e { curve_recursion_limit = 32 };
@@ -253,8 +253,9 @@ namespace agg
     }
 
     //------------------------------------------------------------------------
+#if defined(_MSC_VER) && _MSC_VER <= 1200
     static double MSC60_fix_ICE(double v) { return v; }
-
+#endif
     //------------------------------------------------------------------------
     void curve4_inc::init(double x1, double y1, 
                           double x2, double y2, 
